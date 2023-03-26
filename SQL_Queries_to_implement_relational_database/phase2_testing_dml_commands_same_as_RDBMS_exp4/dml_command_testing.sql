@@ -1,99 +1,105 @@
 CREATE TABLE sy_mp.student(
-    rollNo int,
-    studentName varchar(50),
-    studentEmail varchar(50),
-    studentPassword varchar(50),
-    studentCurrentSem int,
-    PRIMARY KEY (rollNo)
+    roll_no int,
+    student_name varchar(50),
+    student_email varchar(50),
+    student_password varchar(50),
+    student_current_sem int,
+    PRIMARY KEY (roll_no)
 );
 
 CREATE TABLE sy_mp.subject(
-    subjectId int,
-    subjectName varchar(50),
-    correspondingYear int,
-    correspondingSem int,
-    correspondingDepartment varchar(50),
-    PRIMARY KEY (subjectId)
+    subject_id int,
+    subject_name varchar(50),
+    corresponding_year int,
+    corresponding_sem int,
+    corresponding_department varchar(50),
+    PRIMARY KEY (subject_id)
 );
 
 CREATE TABLE sy_mp.textbook(
     -- text book always belongs to a particular subject
-    fkSubjectId int,
-    textbookId int,
-    textbookName varchar(50),
-    textbookAvgRating real, -- refers to avg rating
-    textbookNoOfRatings int,
-    textbookAuthor varchar(50),
-    textbookEdition varchar(50),
+    fk_subject_id int,
+    textbook_id int,
+    textbook_name varchar(50),
+    textbook_avg_rating real, -- refers to avg rating
+    textbook_no_of_ratings int,
+    textbook_author varchar(50),
+    textbook_edition varchar(50),
     publication_year int,
     publisher varchar(50),
-    actualPdf BYTEA,
-    PRIMARY KEY (textbookId),
-    FOREIGN KEY (fkSubjectId) references sy_mp.subject(subjectId) ON DELETE SET NULL ON UPDATE CASCADE
+    -- actualPdf BYTEA,
+    path_of_textbook varchar(200),
+    PRIMARY KEY (textbook_id),
+    FOREIGN KEY (fk_subject_id) references sy_mp.subject(subject_id) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 -- since textbookReviews is a multi valued attribute , thus we need to 
 -- create a seperate table for it
 
 CREATE TABLE sy_mp.textbooksReviews(
-    fkTextbookId int,
-    textbookReview varchar(300),
-    PRIMARY KEY (fkTextbookId,textbookReview),
-    FOREIGN KEY (fkTextbookId) references sy_mp.textbook(textbookId) ON DELETE CASCADE ON UPDATE CASCADE
+    fk_textbook_id int,
+    textbook_review varchar(300),
+    PRIMARY KEY (fk_textbook_id,textbook_review),
+    FOREIGN KEY (fk_textbook_id) references sy_mp.textbook(textbook_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE sy_mp.officialKjsceNotes(
-    fkSubjectId int,
-    kjsceNoteId int,
-    kjsceNoteName varchar(50),
-    actualNote BYTEA,
-	moduleNumber int,
-    PRIMARY KEY (kjsceNoteId),
-    FOREIGN KEY (fkSubjectId) references sy_mp.subject(subjectId) ON DELETE SET NULL ON UPDATE CASCADE
+    fk_subject_id int,
+    kjsce_note_id int,
+    kjsce_note_name varchar(50),
+	path_of_note varchar(200),
+    -- actualNote BYTEA,
+	module_number int,
+    PRIMARY KEY (kjsce_note_id),
+    FOREIGN KEY (fk_subject_id) references sy_mp.subject(subject_id) ON DELETE SET NULL ON UPDATE CASCADE
 
 );
 
 CREATE TABLE sy_mp.pastYearPapers(
-    fkSubjectId int,
-    kjscePastYearPaperId int,
-    kjscePastYearPaperNoteName varchar(50),
-    kjscePastYearPaperYearOfConduction int,
-    kjscePastYearPaper BYTEA,
-    PRIMARY KEY (kjscePastYearPaperId),
-    FOREIGN KEY (fkSubjectId) references sy_mp.subject(subjectId) ON DELETE SET NULL ON UPDATE CASCADE
+    fk_subject_id int,
+    kjsce_past_year_paper_id int,
+    kjsce_past_year_paper_note_name varchar(50),
+    kjsce_past_year_paper_year_of_conduction int,
+	path_of_paper varchar(50),
+	-- kjscePastYearPaper BYTEA,
+    PRIMARY KEY (kjsce_past_year_paper_id),
+    FOREIGN KEY (fk_subject_id) references sy_mp.subject(subject_id) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 CREATE TABLE sy_mp.guidlines(
-    fkSubjectId int,
-    guidlineId int,
-    guidlineHeading varchar(100),
-    guidlineDescription varchar(1000),
-    guidlineYearOfPost int,
-    guidlineAvgRating real,
-    guidlineNoOfRatings int,
-    PRIMARY KEY (guidlineId),
-    FOREIGN KEY (fkSubjectId) references sy_mp.subject(subjectId) ON DELETE CASCADE ON UPDATE CASCADE
+    fk_subject_id int,
+    guidline_id int,
+    guidline_heading varchar(100),
+    guidline_description varchar(1000),
+    guidline_year_of_post int,
+    guidline_avg_rating real,
+    guidline_no_of_ratings int,
+    PRIMARY KEY (guidline_id),
+    FOREIGN KEY (fk_subject_id) references sy_mp.subject(subject_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE sy_mp.referenceLinks(
-    fkSubjectId int,
-    referenceLinkId int,
-    referenceLinkHeading varchar(50),
-    referenceLinkAvgRating real,
-    referenceLinkNoOfRatings int,
-    referenceLinkNoOfReviews int,
-    referenceLinkCourseDescription varchar(300),
-    PRIMARY KEY (referenceLinkId),
-    FOREIGN KEY (fkSubjectId) references sy_mp.subject(subjectId) ON DELETE CASCADE ON UPDATE CASCADE
+    fk_subject_id int,
+    referencelink_id int,
+    referencelink_heading varchar(50),
+    referencelink_avg_rating real,
+    referencelink_no_of_ratings int,
+    referencelink_no_of_reviews int,
+    referencelink_course_description varchar(300),
+    PRIMARY KEY (referencelink_id),
+    FOREIGN KEY (fk_subject_id) references sy_mp.subject(subject_id) ON DELETE CASCADE ON UPDATE CASCADE
 
 );
 
 CREATE TABLE sy_mp.referenceLinksReviews(
-    fkTextbookId int,
-    referenceLinkReview varchar(300),
-    PRIMARY KEY (fkTextbookId,referenceLinkReview),
-    FOREIGN KEY (fkTextbookId) references sy_mp.textbook(textbookId) ON DELETE CASCADE ON UPDATE CASCADE
+    fk_textbook_id int,
+    referencelink_review varchar(300),
+    PRIMARY KEY (fk_textbook_id,referencelink_review),
+    FOREIGN KEY (fk_textbook_id) references sy_mp.textbook(textbook_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
+
 
 INSERT INTO sy_mp.subject 
     VALUES (100,'Data Structures',2,3,'Computer'),
