@@ -1,0 +1,64 @@
+{% extends "base_template.html" %}
+
+{% block title %}UniSource FAQ'S{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid w-75 mt-4">
+    <div class="accordion" id="faqs">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqOne">
+                <button class="accordion-button fs-5" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#answerOne">
+                    What is UniSource ?
+                </button>
+            </h2>
+            <div id="answerOne" class="accordion-collapse collapse show" data-bs-parent="#faqs">
+                <div class="accordion-body">
+                    UniSource is a one stop destination for all your study resources problem.
+                    It is made by keeping in mind the problems students face in finding a proper channel for 
+                    study materials.
+                    It is being developed by Aditya, Rugved and Abhishek
+                </div>
+            </div>
+        </div>
+
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqTwo">
+                <button class="accordion-button fs-5" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#answerTwo">
+                    What you can find here ?
+                </button>
+            </h2>
+            <div id="answerTwo" class="accordion-collapse collapse " data-bs-parent="#faqs">
+                <div class="accordion-body">
+                    Here you will find the differnt study resources such as Official KJSCE notes i.e the notes 
+                    provided by the faculty members, Student noted i.e the self noted prepared by the other students,
+                    textbooks in form of pdfs and Previous year papers.
+                    You can use these resources to level up your study game.
+                </div>
+            </div>
+        </div>
+
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqThree">
+                <button class="accordion-button fs-5" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#answerThree">
+                    How can you contribute ?
+                </button>
+            </h2>
+            <div id="answerThree" class="accordion-collapse collapse " data-bs-parent="#faqs">
+                <div class="accordion-body">
+                    You can contribute to make this platform better by providing your own self prepared notes , 
+                    textbooks pdfs and your question papers so that it is easier for the others to get the 
+                    latest and updated resources.
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
