@@ -1,0 +1,54 @@
+{% extends "base_template.html" %}
+
+{% block title %}UniSource{% endblock %}
+
+{% block content %}
+
+<div class="containerCenterAll container-fluid d-flex justify-content-center align-items-center mt-4">
+    <div class="row">
+        <div class="col-lg-3 col-sm my-2">
+            <div class="card boxShadow" style="width: 18rem;height:250px;">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <div class="card-body text-center d-flex flex-column align-items-center ">
+                  <h5 class="card-title">First year</h5>
+                  <p class="card-text">Year filled with a lots of excitment , expectations and dreams.</p>
+                  <a href="{{url_for('branch_fxn',year='fy')}}" class="btn btn-dark mt-auto w-50">Select Branch</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-lg-3 col-sm my-2">
+            <div class="card boxShadow" style="width: 18rem;height:250px;">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <div class="card-body text-center d-flex flex-column align-items-center">
+                  <h5 class="card-title">Second year</h5>
+                  <p class="card-text">Year you actually start to learn what is engineering and the reality starts hitting you</p>
+                  <a href="{{url_for('branch_fxn',year='sy')}}" class="btn btn-dark mt-auto w-50">Select Branch</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-lg-3 col-sm my-2">
+            <div class="card boxShadow " style="width: 18rem;height:250px;">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <div class="card-body text-center d-flex flex-column align-items-center">
+                  <h5 class="card-title">Third year</h5>
+                  <p class="card-text">Year filled with lots of different emotions. </p>
+                  <a href="{{url_for('branch_fxn',year='ty')}}" class="btn btn-dark mt-auto w-50">Select Branch</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-lg-3 col-sm my-2">
+            <div class="card boxShadow" style="width: 18rem;height:250px;">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <div class="card-body text-center d-flex flex-column align-items-center">
+                  <h5 class="card-title">Last year</h5>
+                  <p class="card-text">Last year with only one goal in mind either good placement or higher studies</p>
+                  <a href="{{url_for('branch_fxn',year='ly')}}" class="btn btn-dark mt-auto w-50">Select Branch</a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

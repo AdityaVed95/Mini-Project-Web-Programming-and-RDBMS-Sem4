@@ -1,0 +1,30 @@
+.containerCenterAll{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+}
+
+.containerCenterX{
+    position: absolute;
+    transform: translate(-50%,-25%);
+    top: 30%;
+    left: 50%;
+}
+
+.options{
+    width:450px;
+    padding: 20px 12px;
+    font-size:22px;
+    font-weight: 300;
+    color: #111111;
+    border: 2px solid #d1d3d4;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 20px;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+}
+
+.boxShadow{
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+}

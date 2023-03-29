@@ -1,0 +1,38 @@
+{% extends "base_template.html" %}
+
+{% block title %}UniSource SIGNUP{% endblock %}
+
+{% block content %}
+
+<div class="container  d-flex justify-content-center align-items-center h-100">
+    <div class="w-100 containerCenterX center d-flex justify-content-center flex-column align-items-center">
+    <h1 class="text-light">Welcome to UniSource</h1>
+    <p class="fs-5 text-light">"Your one stop destination for all study resources"</p>
+        <form method="post" class="w-25">
+            <div class="mb-3 ">
+                <label for="userName" class="form-label">NAME</label>
+                <input type="text" class="form-control" name="userName" placeholder="enter your name">
+            </div>
+            <div class="mb-3 ">
+                <label for="userEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" name="userEmail" placeholder="enter your email">
+            </div>
+            <div class="mb-3 ">
+                <label for="userEmail" class="form-label">Contact No</label>
+                <input type="number" class="form-control" name="userContact" placeholder="enter your contact no">
+            </div>
+            <div class="mb-3 ">
+                <label for="userID" class="form-label">USER ID</label>
+                <input type="text" class="form-control" name="userID" placeholder="enter your user ID">
+            </div>
+            <div class="mb-3 ">
+                <label for="userPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" name="userPassword" placeholder="enter your password">
+            </div>
+            <button type="submit" class="btn btn-primary">SIGNUP</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
