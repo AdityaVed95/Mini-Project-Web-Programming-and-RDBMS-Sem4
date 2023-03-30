@@ -27,10 +27,10 @@
         <div class="collapse navbar-collapse" id="navbarOptions">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item mx-4 fs-5">
-                    <a class="nav-link active" href="/">Home</a>
+                    <a class="nav-link {{'active'  if active_link == 'home'  else ''}}" href="/">Home</a>
                 </li>
                 <li class="nav-item dropdown mx-4 fs-5">
-                    <a class="nav-link dropdown-toggle" href="#" id="yearDropdown" role="button"
+                    <a class="nav-link dropdown-toggle {{'active'  if active_link == 'year'}}" href="#" id="yearDropdown" role="button"
                         data-bs-toggle="dropdown">
                         Year
                     </a>
@@ -46,10 +46,10 @@
                     </ul>
                 </li>
                 <li class="nav-item mx-4 fs-5">
-                    <a class="nav-link" href="{{url_for('faqs_fxn')}}">FAQ's</a>
+                    <a class="nav-link {{'active'  if active_link == 'faqs' else ''}}" href="{{url_for('faqs_fxn')}}">FAQ's</a>
                 </li>
                 <li class="nav-item mx-4 fs-5">
-                    <a class="nav-link" href="{{url_for('contact_fxn')}}">Contact Us</a>
+                    <a class="nav-link {{'active'  if active_link == 'contact' else ''}}" href="{{url_for('contact_fxn')}}">Contact Us</a>
                 </li>
             </ul>
             <ul class="list-unstyled me-2 mb-0 d-flex">
