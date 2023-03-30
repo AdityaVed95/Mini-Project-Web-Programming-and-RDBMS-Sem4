@@ -5,12 +5,12 @@
     left: 50%;
 }
 
-.containerCenterX{
+/* .containerCenterX{
     position: absolute;
     transform: translate(-50%,-25%);
     top: 30%;
     left: 50%;
-}
+} */
 
 .options{
     width:450px;

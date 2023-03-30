@@ -1,28 +1,28 @@
 {% extends "base_template.html" %}
-
+{% set active_link = 'contact' %}
 {% block title %}Contact US{% endblock %}
 
 {% block content %}
 
-<div class="container  d-flex justify-content-center align-items-center h-100">
-    <div class="w-100 containerCenterX center d-flex justify-content-center flex-column align-items-center">
+<div class="container  d-flex justify-content-center align-items-center mt-4">
+    <div class="w-100 center d-flex justify-content-center flex-column align-items-center">
     <h2 class="text-light">Facing Problem ? or Have any feedback</h2>
     <p class="fs-4 text-light">Feel free to reach us by filling the form below🥰</p>
         <form method="post" class="w-25">
             <div class="mb-3 ">
-                <label for="userID" class="form-label">NAME</label>
+                <label for="userID" class="form-label text-light">NAME</label>
                 <input type="text" class="form-control" name="userName" placeholder="enter your name">
             </div>
             <div class="mb-3 ">
-                <label for="userID" class="form-label">USER ID</label>
+                <label for="userID" class="form-label text-light">USER ID</label>
                 <input type="text" class="form-control" name="userID" placeholder="enter your user ID">
             </div>
             <div class="mb-3 ">
-                <label for="userEmail" class="form-label">Contact No</label>
+                <label for="userEmail" class="form-label text-light">Contact No</label>
                 <input type="number" class="form-control" name="userContact" placeholder="enter your contact no">
             </div>
             <div class="mb-3 ">
-                <label for="userID" class="form-label">Feedback or Problem</label>
+                <label for="userID" class="form-label text-light">Feedback or Problem</label>
                 <textarea class="form-control" name="userFeedback" cols="20" rows="6" placeholder="describe your problem / give your valuable feedback"></textarea>
             </div>
             
