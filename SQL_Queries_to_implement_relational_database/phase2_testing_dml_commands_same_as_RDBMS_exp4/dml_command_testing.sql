@@ -1,19 +1,30 @@
+-- refer to this file as the final relations ka structure are present here 
+
 CREATE TABLE sy_mp.student(
-    roll_no int,
+    student_id int,
+	roll_no int,
     student_name varchar(50),
-    student_email varchar(50),
+    student_email varchar(50) unique,
     student_password varchar(50),
-    student_current_sem int,
-    PRIMARY KEY (roll_no)
+    student_current_sem int check(student_current_sem > 0 and student_current_sem < 9),
+    PRIMARY KEY (student_id)
 );
 
 CREATE TABLE sy_mp.subject(
     subject_id int,
-    subject_name varchar(50),
-    corresponding_year int,
-    corresponding_sem int,
-    corresponding_department varchar(50),
-    PRIMARY KEY (subject_id)
+    subject_name varchar(100),
+    corresponding_year int check(corresponding_year > 0 and corresponding_year < 5),
+    corresponding_sem int check(corresponding_sem > 0 and corresponding_sem < 9),
+    fk_dept_id int,
+    PRIMARY KEY (subject_id),
+    FOREIGN KEY (fk_dept_id) references sy_mp.department (dept_id)
+);
+
+CREATE TABLE sy_mp.department(
+
+	dept_id int,
+	dept_name varchar(50),
+	PRIMARY KEY (dept_id)
 );
 
 CREATE TABLE sy_mp.textbook(
@@ -92,10 +103,10 @@ CREATE TABLE sy_mp.referenceLinks(
 );
 
 CREATE TABLE sy_mp.referenceLinksReviews(
-    fk_textbook_id int,
+    fk_referencelink_id int,
     referencelink_review varchar(300),
     PRIMARY KEY (fk_textbook_id,referencelink_review),
-    FOREIGN KEY (fk_textbook_id) references sy_mp.textbook(textbook_id) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (fk_referencelink_id) references sy_mp.referenceLinks(referencelink_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
