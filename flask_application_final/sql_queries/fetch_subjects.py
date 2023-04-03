@@ -10,12 +10,14 @@ import psycopg2
 
 
 def select_required_subjects(correspondingYear, deptId):
+    connection = 0
+
     try:
         connection = psycopg2.connect(user="postgres",
                                       password="pass",
                                       host="127.0.0.1",
                                       port="5432",
-                                      database="flask_sem4_db",
+                                      database="postgres",
                                       options="-c search_path=sy_mp,public")
 
         cursor = connection.cursor()

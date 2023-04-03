@@ -1,0 +1,4 @@
+# connecting to ec2 instance from terminal : 
+# ssh -i ~/.ssh/mum2kp.pem ec2-user@<public_ip_of_ec2_instance>
+
+# use error_reporting(0) so that the errors will not be visible on the browser

@@ -7,7 +7,9 @@ CREATE TABLE sy_mp.student(
     student_email varchar(50) unique,
     student_password varchar(50),
     student_current_sem int check(student_current_sem > 0 and student_current_sem < 9),
-    PRIMARY KEY (student_id)
+	fk_dept_id int,
+    PRIMARY KEY (student_id),
+	FOREIGN KEY (fk_dept_id) references sy_mp.department (dept_id)
 );
 
 CREATE TABLE sy_mp.subject(

@@ -3,9 +3,15 @@ from sql_queries import fetch_subjects, insert_student, fetch_student_details, f
 
 app = Flask(__name__)
 
+# run this on command line for deploying on cloud : 
+# export FLASK_APP=app.py
+# flask run --host=0.0.0.0 --port=5000
 
 @app.route('/')
 def home_fxn():
+    temp = request.headers.get('User-Agent')
+    if "iPhone" in temp or "Android" in temp:
+        return "<html> <h1> This application is only supported for Desktop computers and not for mobile phones </h1> </html>"
     return render_template('home_template.html')
 
 
@@ -63,10 +69,11 @@ def test1_fxn(correspondingYear, deptId):
 
 
 # create new entry of student in database
-@app.route('/test2/<studentId>/<rollNo>/<studentName>/<studentEmail>/<studentPassword>/<studentCurrentSem>')
-def test2_fxn(studentId, rollNo, studentName, studentEmail, studentPassword, studentCurrentSem):
+# demo : http://127.0.0.1:5000/test2/10/208/Aditya/aditya.ved@somaiya.edu/my_pass/5/1
+@app.route('/test2/<studentId>/<rollNo>/<studentName>/<studentEmail>/<studentPassword>/<studentCurrentSem>/<deptId>')
+def test2_fxn(studentId, rollNo, studentName, studentEmail, studentPassword, studentCurrentSem,deptId):
     result = insert_student.insert_student_into_db(studentId, rollNo, studentName, studentEmail, studentPassword,
-                                                   studentCurrentSem)
+                                                   studentCurrentSem,deptId)
     return result[1]
 
 

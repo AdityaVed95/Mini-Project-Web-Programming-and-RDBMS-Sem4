@@ -45,6 +45,8 @@ select * from sy_mp.student
 
 select * from sy_mp.department
 
+insert into sy_mp.student values(10,208,'Aditya','aditya.ved@somaiya.edu','my_pass',5,1);
+
 INSERT INTO sy_mp.textbook (fk_subject_id,textbook_id, textbook_name, textbook_avg_rating, textbook_no_of_ratings, textbook_author, textbook_edition, publication_year,publisher)
     VALUES (21,1, 'Intro to DBMS Korth', 5, 10 , 'Korth', 7, 2022 , 'McGraww Hill'),
 		   (22,2,'Intro to TACD',4.5,10,'GK Gupta',4,2021,'Pearson'),
