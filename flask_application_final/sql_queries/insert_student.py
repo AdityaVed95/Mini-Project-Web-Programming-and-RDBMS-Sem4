@@ -7,7 +7,7 @@ import psycopg2
 #  0, error if it was not successful
 
 
-def insert_student_into_db(studentId,rollNo,studentName,studentEmail,studentPassword,studentCurrentSem,deptId):
+def insert_student_into_db(studentId,studentName,studentEmail,studentPassword,studentCurrentSem):
     connection = 0
     try:
         connection = psycopg2.connect(user="postgres",
@@ -22,11 +22,11 @@ def insert_student_into_db(studentId,rollNo,studentName,studentEmail,studentPass
         postgreSQL_insert_Query = """
         
         insert into student 
-        values(%s,%s,%s,%s,%s,%s,%s)
+        values(%s,%s,%s,%s,%s)
 
         """
 
-        record_to_insert = (studentId,rollNo,studentName,studentEmail,studentPassword,studentCurrentSem,deptId)
+        record_to_insert = (studentId,studentName,studentEmail,studentPassword,studentCurrentSem)
 
         cursor.execute(postgreSQL_insert_Query,record_to_insert)
         

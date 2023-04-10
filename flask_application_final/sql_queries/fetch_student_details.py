@@ -19,8 +19,8 @@ def get_student_details(studentId):
 
         cursor = connection.cursor()
 
-        postgreSQL_select_Query = "select * from sy_mp.student where student_id =" + studentId
-
+        postgreSQL_select_Query = "select * from sy_mp.student where student_id ='" + studentId + "'"
+        # 'select * from sy_mp.student where student_id =id2'
         cursor.execute(postgreSQL_select_Query)
         student_details = cursor.fetchall()
         return 1, student_details

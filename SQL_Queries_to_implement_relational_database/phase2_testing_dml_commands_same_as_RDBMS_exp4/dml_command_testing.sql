@@ -2,14 +2,11 @@
 
 CREATE TABLE sy_mp.student(
     student_id int,
-	roll_no int,
     student_name varchar(50),
     student_email varchar(50) unique,
     student_password varchar(50),
     student_current_sem int check(student_current_sem > 0 and student_current_sem < 9),
-	fk_dept_id int,
-    PRIMARY KEY (student_id),
-	FOREIGN KEY (fk_dept_id) references sy_mp.department (dept_id)
+    PRIMARY KEY (student_id)
 );
 
 CREATE TABLE sy_mp.subject(
@@ -41,7 +38,7 @@ CREATE TABLE sy_mp.textbook(
     publication_year int,
     publisher varchar(50),
     -- actualPdf BYTEA,
-    path_of_textbook varchar(200),
+    textbook_link varchar(200),
     PRIMARY KEY (textbook_id),
     FOREIGN KEY (fk_subject_id) references sy_mp.subject(subject_id) ON DELETE SET NULL ON UPDATE CASCADE
 );
@@ -60,8 +57,9 @@ CREATE TABLE sy_mp.officialKjsceNotes(
     fk_subject_id int,
     kjsce_note_id int,
     kjsce_note_name varchar(50),
-	path_of_note varchar(200),
+	-- path_of_note varchar(200),
     -- actualNote BYTEA,
+    kjsce_note_link varchar(200),
 	module_number int,
     PRIMARY KEY (kjsce_note_id),
     FOREIGN KEY (fk_subject_id) references sy_mp.subject(subject_id) ON DELETE SET NULL ON UPDATE CASCADE
@@ -73,7 +71,8 @@ CREATE TABLE sy_mp.pastYearPapers(
     kjsce_past_year_paper_id int,
     kjsce_past_year_paper_note_name varchar(50),
     kjsce_past_year_paper_year_of_conduction int,
-	path_of_paper varchar(50),
+	-- path_of_paper varchar(50),
+    kjsce_past_year_paper_link varchar(200),
 	-- kjscePastYearPaper BYTEA,
     PRIMARY KEY (kjsce_past_year_paper_id),
     FOREIGN KEY (fk_subject_id) references sy_mp.subject(subject_id) ON DELETE SET NULL ON UPDATE CASCADE

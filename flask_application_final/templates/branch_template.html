@@ -7,10 +7,10 @@
     <h3 class="text-light">Hi! {{year}} student</h3>
     <h4 class="text-light">Please select your Branch to continue 😉</h4>
     <div class="branches d-flex flex-column mt-4">
-        <a href="{{url_for('resource_fxn',branch='COMPS')}}" class="btn options btn-light">Computer Engineering</a>
-        <a href="{{url_for('resource_fxn',branch='IT')}}" class="btn options btn-light">Information Technology</a>
-        <a href="{{url_for('resource_fxn',branch='EXCP')}}" class="btn options btn-light">Electronic and Computer Programming</a>
-        <a href="{{url_for('resource_fxn',branch='MECH')}}" class="btn options btn-light">Mechanical Engineering</a>
+        <a href="{{url_for('resource_fxn',branch='COMPS',year=year)}}" class="btn options btn-light">Computer Engineering</a>
+        <a href="{{url_for('resource_fxn',branch='IT',year=year)}}" class="btn options btn-light">Information Technology</a>
+        <a href="{{url_for('resource_fxn',branch='EXCP',year=year)}}" class="btn options btn-light">Electronic and Computer Programming</a>
+        <a href="{{url_for('resource_fxn',branch='MECH',year=year)}}" class="btn options btn-light">Mechanical Engineering</a>
     </div>
 </div>
 

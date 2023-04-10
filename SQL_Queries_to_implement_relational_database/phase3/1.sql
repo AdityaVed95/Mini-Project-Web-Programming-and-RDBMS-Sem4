@@ -47,11 +47,11 @@ select * from sy_mp.department
 
 insert into sy_mp.student values(10,208,'Aditya','aditya.ved@somaiya.edu','my_pass',5,1);
 
-INSERT INTO sy_mp.textbook (fk_subject_id,textbook_id, textbook_name, textbook_avg_rating, textbook_no_of_ratings, textbook_author, textbook_edition, publication_year,publisher)
-    VALUES (21,1, 'Intro to DBMS Korth', 5, 10 , 'Korth', 7, 2022 , 'McGraww Hill'),
-		   (22,2,'Intro to TACD',4.5,10,'GK Gupta',4,2021,'Pearson'),
-		   (22,3,'Intermediate TACD',7,10,'GK Gupta',4,2021,'Penguin'),
-		   (14,4,'Data Structures using C',7,10,'Reema Thareja',4,2021,'Penguin');
+INSERT INTO sy_mp.textbook (fk_subject_id,textbook_id, textbook_name, textbook_avg_rating, textbook_no_of_ratings, textbook_author, textbook_edition, publication_year,publisher,textbook_link)
+    VALUES (21,1, 'Intro to DBMS Korth', 5, 10 , 'Korth', 7, 2022 , 'McGraww Hill','link1'),
+		   (22,2,'Intro to TACD',4.5,10,'GK Gupta',4,2021,'Pearson','link2'),
+		   (22,3,'Intermediate TACD',7,10,'GK Gupta',4,2021,'Penguin','link3'),
+		   (14,4,'Data Structures using C',7,10,'Reema Thareja',4,2021,'Penguin','link4');
 
 select * from sy_mp.textbook
 select * from sy_mp.textbook where fk_subject_id =22

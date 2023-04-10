@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if result[0] == 1 %}
+        <h1>You Have Successfully Signed Up </h1>
+        <a href="{{url_for('welcome_fxn')}}">Press here to redirect to welcome page </a>
+    {% else %}
+        <h1>Sign Up was unsuccessful</h1>
+        <h3>Error was : {{result[1]}}</h3>
+        <a href="{{url_for('signup_fxn')}}">Press here to redirect to signup page</a>
+    {% endif %}
+</body>
+</html>

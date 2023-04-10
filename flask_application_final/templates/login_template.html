@@ -1,26 +1,35 @@
-{% extends "base_template.html" %}
-
-{% block title %}UniSource LOGIN{% endblock %}
-
-{% block content %}
-
-<div class="container  d-flex justify-content-center align-items-center mt-4">
-    <div class="w-100 center d-flex justify-content-center flex-column align-items-center">
-    <h1 class="text-light">Welcome to UniSource</h1>
-    <p class="fs-5 text-light">"Your one stop destination for all study resources"</p>
-        <form method="post" class="w-25">
-            <div class="mb-3 ">
-                <label for="userID" class="form-label text-light">USER ID</label>
-                <input type="text" class="form-control" name="userID" placeholder="enter your user ID">
-            </div>
-            <div class="mb-3 ">
-                <label for="userPassword" class="form-label text-light">Password</label>
-                <input type="password" class="form-control" name="userPassword" placeholder="enter your password">
-            </div>
-            <button type="submit" class="btn btn-primary">LOGIN</button>
-        </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container  d-flex justify-content-center align-items-center mt-4">
+        <div class="w-100 center d-flex justify-content-center flex-column align-items-center">
+        <h1 class="text-light">Welcome to UniSource</h1>
+        <p class="fs-5 text-light">"Your one stop destination for all study resources"</p>
+            <form method="post" class="w-25">
+                <div class="mb-3 ">
+                    <label for="studentId" class="form-label text-light">student Id</label>
+                    <input type="text" class="form-control" name="studentId" placeholder="enter your user ID">
+                </div>
+                <div class="mb-3 ">
+                    <label for="studentPassword" class="form-label text-light">student Password</label>
+                    <input type="password" class="form-control" name="studentPassword" placeholder="enter your password">
+                </div>
+                <button type="submit" class="btn btn-primary">LOGIN</button>
+            </form>
+        </div>
     </div>
-</div>
+
+    <br><hr><br>
+    <a href="{{url_for('welcome_fxn')}}">Press here to redirect to welcome page</a>
+</body>
+</html>
 
 
-{% endblock %}
+
+
