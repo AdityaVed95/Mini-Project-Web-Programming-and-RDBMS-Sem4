@@ -1,0 +1,30 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+
+    <br>
+
+<br>
+
+
+
+    <div class="mt-4 text-center text-light">
+        <h3>Here's a brief overview of your profile : </h3>
+        <br>
+
+        <p>Id : {{result[0][0]}}</p>
+        <hr>
+
+        <p>Name : {{result[0][1]}}</p>
+        <hr>
+
+        <p>Registered Email : {{result[0][2]}}</p>
+        <hr>
+
+        <p>Current Semester : {{result[0][4]}}</p>
+        <hr>
+    </div>
+
+
+
+{% endblock %}

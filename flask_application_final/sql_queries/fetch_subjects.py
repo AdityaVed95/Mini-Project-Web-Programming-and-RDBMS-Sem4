@@ -9,7 +9,7 @@
 import psycopg2
 
 
-def select_required_subjects(correspondingYear, deptId):
+def select_required_subjects(correspondingYear, dept_name):
     connection = 0
 
     try:
@@ -22,11 +22,11 @@ def select_required_subjects(correspondingYear, deptId):
 
         cursor = connection.cursor()
 
-        if (correspondingYear == "1"):
-            postgreSQL_select_Query = "select * from sy_mp.subject where corresponding_year =" + correspondingYear
+        if (correspondingYear == "FY"):
+            postgreSQL_select_Query = "select subject_name from sy_mp.subject where corresponding_year = '" + correspondingYear + "'"
 
         else:
-            postgreSQL_select_Query = "select * from sy_mp.subject where corresponding_year =" + correspondingYear + " and fk_dept_id = " + deptId
+            postgreSQL_select_Query = "select subject_name from sy_mp.subject where corresponding_year ='" + correspondingYear + "' and fk_dept_name = '" + dept_name + "'"
 
         cursor.execute(postgreSQL_select_Query)
         subject_details = cursor.fetchall()

@@ -1,0 +1,17 @@
+{% extends 'base_template.html' %}
+{% block title %} Textbooks avaialable for {{subject_name}} {% endblock %} 
+
+{% block content %}
+
+<h1 class="text-light mx-auto">Online courses avaialable for {{subject_name}}</h1>
+
+{% for course in result %}
+
+<div class="subjects d-flex flex-column">
+    <a href="{{course[1]}}" class="btn options btn-light"> {{course[0]}}
+    </a>
+</div>
+       
+{% endfor %}
+
+{% endblock %}

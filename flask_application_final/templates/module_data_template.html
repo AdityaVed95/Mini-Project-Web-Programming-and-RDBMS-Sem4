@@ -1,0 +1,21 @@
+{% extends 'base_template.html' %}
+{% block title %}{{year}} Resources Available for {{dept_name}} {% endblock %} 
+
+{% block content %}
+
+<div class="mt-4 text-center">
+    <h4 class="text-light">Please select the File to Download </h4>
+   
+    {% for kjsce_note in result %}
+
+    <div class="subjects d-flex flex-column">
+        <a href="{{ url_for('download_fxn', file_path=kjsce_note[4])}}" class="btn options btn-light text-dark"> {{kjsce_note[3]}}</a>
+        
+    </div>  
+           
+    {% endfor %}
+    
+    
+</div>
+
+{% endblock %}

@@ -7,7 +7,7 @@
 
 import psycopg2
 
-def select_required_textbooks(subjectId):
+def select_required_textbooks(subject_name,dept_name,year):
     connection = 0
     try:
         connection = psycopg2.connect(user="postgres",
@@ -19,7 +19,11 @@ def select_required_textbooks(subjectId):
 
         cursor = connection.cursor()
 
-        postgreSQL_select_Query = "select * from sy_mp.textbook where fk_subject_id ="+subjectId
+        if year == 'FY':
+            postgreSQL_select_Query = "select textbook_name,textbook_link from sy_mp.textbook where fk_subject_name ='"+subject_name+"' and fk_dept_name is null"
+
+        else:
+            postgreSQL_select_Query = "select textbook_name,textbook_link from sy_mp.textbook where fk_subject_name ='"+subject_name+"' and fk_dept_name = '"+dept_name+"'"
 
         cursor.execute(postgreSQL_select_Query)
         textbook_details = cursor.fetchall()

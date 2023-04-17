@@ -15,19 +15,19 @@
     <title>{% block title%} {% endblock %}</title>
 </head>
 <body>
-<a href="{{url_for('logout_fxn')}}">Click here to logout</a>
+
 <section class="page">
     <!-- navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark zindex-11 bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand fs-3" href="/">UniSource</a>
+        <a class="navbar-brand fs-3" href="/home">UniSource</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarOptions">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarOptions">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item mx-4 fs-5">
-                    <a class="nav-link {{'active'  if active_link == 'home'  else ''}}" href="/">Home</a>
+                    <a class="nav-link {{'active'  if active_link == 'home'  else ''}}" href="/home">Home</a>
                 </li>
                 <li class="nav-item dropdown mx-4 fs-5">
                     <a class="nav-link dropdown-toggle {{'active'  if active_link == 'year'}}" href="#" id="yearDropdown" role="button"
@@ -53,17 +53,19 @@
                 </li>
             </ul>
             <ul class="list-unstyled me-2 mb-0 d-flex">
+                
                 <li class="ms-2">
-                    <a href="{{url_for('login_fxn')}}" class="btn btn-sm  btn btn-outline-light">login</a>
+                    <a href="{{url_for('profile_fxn')}}" class="btn btn-sm  btn btn-outline-light">💫My Profile💫</a>
                 </li>
+                
                 <li class="ms-2">
-                    <a href="{{url_for('signup_fxn')}}" class="btn btn-sm  btn btn-outline-light">sign up</a>
+                    <a href="{{url_for('logout_fxn')}}" class="btn btn-sm  btn btn-outline-light">Log out</a>
                 </li>
+
+                
+
             </ul>
-            <form class="d-flex" method="post">
-                <input class="form-control me-2 " type="search" placeholder="Search">
-                <button class="btn btn-light text-success" type="submit">Search</button>
-            </form>
+            
         </div>
     </div>
 </nav>

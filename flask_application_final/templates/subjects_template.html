@@ -1,16 +1,19 @@
 {% extends 'base_template.html' %}
-{% block title %}{{year}} Resources Available for {{branch}} {% endblock %} 
+{% block title %}{{year}} Resources Available for {{dept_name}} {% endblock %} 
 
 {% block content %}
 
 <div class="mt-4 text-center">
     <h4 class="text-light">Please select the Subject </h4>
    
+    {% for subject in subjects %}
+
     <div class="subjects d-flex flex-column">
-        <a href="#" class="btn options btn-light">demo {{type}}
-           
-        </a>
+        <a href="{{url_for('resource_fxn',year=year,dept_name=dept_name,subject_name = subject[0])}}" class="btn options btn-light">{{subject[0]}}</a>
     </div>
+           
+    {% endfor %}
+   
     
 </div>
 
