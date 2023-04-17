@@ -13,7 +13,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 
-@app.route('/welcome')
+@app.route('/')
 def welcome_fxn():
     temp = request.headers.get('User-Agent')
     if "iPhone" in temp or "Android" in temp:
