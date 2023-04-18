@@ -78,7 +78,13 @@ select * from sy_mp.textbook
 INSERT INTO sy_mp.online_courses 
 	VALUES('Data Structures','COMPS',1,'Code with Harry : DSA','https://www.codewithharry.com/videos/data-structures-and-algorithms-in-hindi-1/'),
 		   ('Programming in C',null,2,'Bharatacharya C Programming','https://bharatacharya.graphy.com/courses/C-Programming-63c7a1e4e4b05998900b494e');
+
+
+INSERT INTO sy_mp.online_courses 
+	VALUES('Applied Mathematics I',null,3,'MIT Open Courseware Eigen Values and Eigen Vectors','https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-21-eigenvalues-and-eigenvectors/')
 		   
+select * from sy_mp.online_courses 
+
 TRUNCATE sy_mp.online_courses
 
 

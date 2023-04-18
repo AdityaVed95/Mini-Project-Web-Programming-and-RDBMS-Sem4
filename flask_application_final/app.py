@@ -25,7 +25,7 @@ def welcome_fxn():
 def home_fxn():
     if not session.get("studentId"):
         print("session establish failure")
-        return redirect("/welcome")
+        return redirect("/")
 
     return render_template('home_template.html')
 
@@ -34,14 +34,16 @@ def home_fxn():
 @app.route('/home/faqs')
 def faqs_fxn():
     if not session.get("studentId"):
-        return redirect("/welcome")
+        return redirect("/")
+        
     return render_template('faqs_template.html')
 
 
 @app.route('/home/contact')
 def contact_fxn():
     if not session.get("studentId"):
-        return redirect("/welcome")
+        return redirect("/")
+        
     return render_template('contact_template.html')
 
 
@@ -51,16 +53,18 @@ def login_fxn():
         result = fetch_student_details.get_student_details(request.form.get("studentId"))
         # successful authentication
         if result[0] == 1:
+            if len(result[1]) == 0:
+                return render_template('login_fail.html')
 
             if (result[1][0][3] == request.form.get("studentPassword")):
                 session["studentId"] = request.form.get("studentId")
                 return redirect(url_for('home_fxn'))
 
             else:
-                return render_template('login_fail.html', result=result)
+                return render_template('login_fail.html')
 
         else:
-            return render_template('login_fail.html', result=result)
+            return render_template('login_fail.html')
 
         # return render_template('home_template.html')
     else:
@@ -70,12 +74,15 @@ def login_fxn():
 @app.route('/signup', methods=['GET', 'POST'])
 def signup_fxn():
     if request.method == 'POST':
-        result = insert_student.insert_student_into_db(request.form.get("studentId"), request.form.get("studentName"),
-                                                       request.form.get("studentEmail"),
-                                                       request.form.get("studentPassword"),
-                                                       request.form.get("studentCurrentSem"))
+        if "@somaiya.edu" in request.form.get("studentEmail"):
+            result = insert_student.insert_student_into_db(request.form.get("studentId"), request.form.get("studentName"),
+                                                           request.form.get("studentEmail"),
+                                                           request.form.get("studentPassword"),
+                                                           request.form.get("studentCurrentSem"))
 
-        return render_template('signup_success_fail.html', result=result)
+            return render_template('signup_success_fail.html', result=result)
+        else:
+            return render_template('signup_success_fail.html',result = (0,"Please Use somaiaya Id to sign up"))
 
     else:
         return render_template('signup_template.html')
@@ -84,7 +91,7 @@ def signup_fxn():
 @app.route("/logout")
 def logout_fxn():
     session["studentId"] = None
-    return redirect("/welcome")
+    return redirect("/")
 
 
 # main routes
@@ -92,14 +99,16 @@ def logout_fxn():
 @app.route('/home/<year>')
 def branch_fxn(year):
     if not session.get("studentId"):
-        return redirect("/welcome")
+        return redirect("/")
+        
     return render_template('branch_template.html', year=year)
 
 
 @app.route('/home/<year>/<dept_name>')
 def subject_fxn(year, dept_name):
     if not session.get("studentId"):
-        return redirect("/welcome")
+        return redirect("/")
+        
     result = fetch_subjects.select_required_subjects(year, dept_name)
 
     if (result[0] == 0):
@@ -111,7 +120,8 @@ def subject_fxn(year, dept_name):
 @app.route('/home/<year>/<dept_name>/<subject_name>')
 def resource_fxn(year, dept_name, subject_name):
     if not session.get("studentId"):
-        return redirect("/welcome")
+        return redirect("/")
+        
 
     return render_template('resource_template.html', year=year, dept_name=dept_name, subject_name=subject_name)
 
@@ -119,7 +129,8 @@ def resource_fxn(year, dept_name, subject_name):
 @app.route('/home/<year>/<dept_name>/<subject_name>/<resource_name>')
 def module_fxn(year, dept_name, subject_name, resource_name):
     if not session.get("studentId"):
-        return redirect("/welcome")
+        return redirect("/")
+        
 
     result = fetch_no_of_modules.get_no(subject_name)
     print("=========================")
@@ -138,7 +149,8 @@ def module_fxn(year, dept_name, subject_name, resource_name):
 @app.route('/home/<year>/<dept_name>/<subject_name>/textbook')
 def textbook_fxn(year, dept_name, subject_name):
     if not session.get("studentId"):
-        return redirect("/welcome")
+        return redirect("/")
+        
 
     result = fetch_textbook_from_db.select_required_textbooks(subject_name, dept_name, year)
     print(result)
@@ -148,7 +160,8 @@ def textbook_fxn(year, dept_name, subject_name):
 @app.route('/home/<year>/<dept_name>/<subject_name>/Online_Courses')
 def course_fxn(subject_name, dept_name, year):
     if not session.get("studentId"):
-        return redirect("/welcome")
+        return redirect("/")
+        
 
     result = fetch_online_courses.select_required_courses(subject_name, dept_name, year)
     return render_template('online_courses.html', result=result[1], subject_name=subject_name)
@@ -169,7 +182,8 @@ def download_fxn(file_path):
 @app.route('/home/<year>/<dept_name>/<subject_name>/<resource_name>/<module_no>')
 def module_data_fxn(year, dept_name, subject_name, resource_name, module_no):
     if not session.get("studentId"):
-        return redirect("/welcome")
+        return redirect("/")
+        
 
     if resource_name == "kjsce_notes":
         result = fetch_kjsce_notes_module_data.select_required_module_data(subject_name, dept_name, module_no, year)
@@ -187,7 +201,8 @@ def module_data_fxn(year, dept_name, subject_name, resource_name, module_no):
 @app.route('/home/profile')
 def profile_fxn():
     if not session.get("studentId"):
-        return redirect("/welcome")
+        return redirect("/")
+        
 
     result = fetch_student_details.get_student_details(session.get("studentId"))
 

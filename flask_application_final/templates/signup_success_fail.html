@@ -10,6 +10,12 @@
         <a href="{{url_for('welcome_fxn')}}"><button type="submit" class="btn btn-primary btn-lg">Lets
                 Start</button></a>
     </div>
+    {% elif result[1] == "Please Use somaiaya Id to sign up" %}
+        <h1>Sign Up was Unsuccessful 😔</h1>
+        <div class="containerCenterAll">
+            <h3 class="bg-dark border rounded">{{ result[1] }} and Try Again</h3>
+            <a href="{{url_for('signup_fxn')}}"><button type="submit" class="btn btn-primary btn-lg">TRY AGAIN</button></a>
+        </div>
     {% else %}
     <h1>Sign Up was Unsuccessful 😔</h1>
     <div class="containerCenterAll">
