@@ -1,7 +1,7 @@
 # this fxn is useful when a new student creates their accoutn
 # which is to added to the database 
 
-import psycopg2
+from sql_queries import connection_fxn 
 
 # this fxn returns 1,"1" tuple if the insertion was successful and 
 #  0, error if it was not successful
@@ -10,14 +10,7 @@ import psycopg2
 def insert_student_into_db(studentId,studentName,studentEmail,studentPassword,studentCurrentSem):
     connection = 0
     try:
-        connection = psycopg2.connect(user="postgres",
-                                    password="pass",
-                                    host="127.0.0.1",
-                                    port="5432",
-                                    database="postgres",
-                                    options="-c search_path=sy_mp,public")
-
-        cursor = connection.cursor()
+        cursor=connection_fxn.make_connection()
 
         postgreSQL_insert_Query = """
         

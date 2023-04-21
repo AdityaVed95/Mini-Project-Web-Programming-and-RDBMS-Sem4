@@ -6,21 +6,14 @@
 # 0 and the error in case of failed retreival of data
 # (0,error) is passed in tuple form
 
-import psycopg2
+from sql_queries import connection_fxn 
 
 
 def select_required_subjects(correspondingYear, dept_name):
     connection = 0
 
     try:
-        connection = psycopg2.connect(user="postgres",
-                                      password="pass",
-                                      host="127.0.0.1",
-                                      port="5432",
-                                      database="postgres",
-                                      options="-c search_path=sy_mp,public")
-
-        cursor = connection.cursor()
+        cursor=connection_fxn.make_connection()
 
         if (correspondingYear == "FY"):
             postgreSQL_select_Query = "select subject_name from sy_mp.subject where corresponding_year = '" + correspondingYear + "'"

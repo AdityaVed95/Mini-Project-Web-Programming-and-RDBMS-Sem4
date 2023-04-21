@@ -1,16 +1,9 @@
-import psycopg2
+from sql_queries import connection_fxn 
 
 def select_required_module_data(subject_name,dept_name,moduleNo,year):
     connection = 0
     try:
-        connection = psycopg2.connect(user="postgres",
-                                    password="pass",
-                                    host="127.0.0.1",
-                                    port="5432",
-                                    database="postgres",
-                                    options="-c search_path=sy_mp,public")
-
-        cursor = connection.cursor()
+        cursor=connection_fxn.make_connection()
 
         if year == 'FY':
             postgreSQL_select_Query = "select * from sy_mp.kjsce_notes where fk_subject_name ='"+subject_name+"' and fk_dept_name is null and module_number = "+moduleNo

@@ -9,6 +9,14 @@ CREATE TABLE sy_mp.student(
     PRIMARY KEY (student_id)
 );
 
+CREATE TABLE sy_mp.department(
+
+	dept_id int,
+	dept_name varchar(50) unique,
+	PRIMARY KEY (dept_id)
+);
+
+
 CREATE TABLE sy_mp.subject(
     subject_id int,
     subject_name varchar(100),
@@ -20,15 +28,6 @@ CREATE TABLE sy_mp.subject(
     FOREIGN KEY (fk_dept_name) references sy_mp.department (dept_name),
 	UNIQUE (subject_name, fk_dept_name)
 );
-
-CREATE TABLE sy_mp.department(
-
-	dept_id int,
-	dept_name varchar(50) unique,
-	PRIMARY KEY (dept_id)
-);
-
-
 
 CREATE TABLE sy_mp.textbook(
     -- text book always belongs to a particular subject

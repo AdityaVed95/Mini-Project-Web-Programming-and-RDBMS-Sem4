@@ -4,21 +4,12 @@
 # this fxn returns 1 and the student details for the correct input and returns
 # 0 and the error in case of failed retreival of data
 
-import psycopg2
-
+from sql_queries import connection_fxn 
 
 def get_student_details(studentId):
     connection = 0
     try:
-        connection = psycopg2.connect(user="postgres",
-                                      password="pass",
-                                      host="127.0.0.1",
-                                      port="5432",
-                                      database="postgres",
-                                      options="-c search_path=sy_mp,public")
-
-        cursor = connection.cursor()
-
+        cursor=connection_fxn.make_connection()
         postgreSQL_select_Query = "select * from sy_mp.student where student_id ='" + studentId + "'"
         # 'select * from sy_mp.student where student_id =id2'
         cursor.execute(postgreSQL_select_Query)

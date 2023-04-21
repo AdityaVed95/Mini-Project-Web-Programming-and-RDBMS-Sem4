@@ -1,19 +1,12 @@
 # fetches the _no_of_modules_of_a_given subject
 
-import psycopg2
+from sql_queries import connection_fxn 
 
 
 def get_no(subject_name):
     connection = 0
     try:
-        connection = psycopg2.connect(user="postgres",
-                                      password="pass",
-                                      host="127.0.0.1",
-                                      port="5432",
-                                      database="postgres",
-                                      options="-c search_path=sy_mp,public")
-
-        cursor = connection.cursor()
+        cursor=connection_fxn.make_connection()
 
         postgreSQL_select_Query = "select no_of_modules from sy_mp.subject where subject_name ='" + subject_name +"'"
         

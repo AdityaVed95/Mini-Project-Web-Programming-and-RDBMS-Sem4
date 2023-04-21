@@ -28,7 +28,7 @@ CREATE TABLE sy_mp.textbook(
     publication_year int,
     publisher varchar(50),
     actualPdf BYTEA,
-    PRIMARY KEY (textbookId)
+    PRIMARY KEY (textbookId),
     FOREIGN KEY (fkSubjectId) references sy_mp.subject(subjectId) ON DELETE SET NULL ON UPDATE CASCADE
 );
 

@@ -51,6 +51,7 @@ def contact_fxn():
 def login_fxn():
     if request.method == 'POST':
         result = fetch_student_details.get_student_details(request.form.get("studentId"))
+        print(result)
         # successful authentication
         if result[0] == 1:
             if len(result[1]) == 0:
@@ -79,7 +80,7 @@ def signup_fxn():
                                                            request.form.get("studentEmail"),
                                                            request.form.get("studentPassword"),
                                                            request.form.get("studentCurrentSem"))
-
+            print(result[1])
             return render_template('signup_success_fail.html', result=result)
         else:
             return render_template('signup_success_fail.html',result = (0,"Please Use somaiaya Id to sign up"))
