@@ -3,8 +3,9 @@
 
 {% block content %}
 
-<h1 class="text-light mx-auto">Textbooks avaialable for {{subject_name}}</h1>
+<h1 class="text-light mx-auto heading_bg">Textbooks avaialable for {{subject_name}}</h1>
 
+<div class="content">
 {% for textbook in result %}
 
 <div class="subjects d-flex flex-column">
@@ -14,5 +15,5 @@
 </div>
        
 {% endfor %}
-
+</div>
 {% endblock %}

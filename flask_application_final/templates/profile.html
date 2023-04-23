@@ -2,29 +2,24 @@
 
 {% block content %}
 
-    <br>
-
-<br>
-
-
-
-    <div class="mt-4 text-center text-light">
-        <h3>Here's a brief overview of your profile : </h3>
-        <br>
-
-        <p>Id : {{result[0][0]}}</p>
-        <hr>
-
-        <p>Name : {{result[0][1]}}</p>
-        <hr>
-
-        <p>Registered Email : {{result[0][2]}}</p>
-        <hr>
-
-        <p>Current Semester : {{result[0][4]}}</p>
-        <hr>
+    <div><h2 class="text-light heading_bg mt-4">Here's a brief overview of your Profile</h2></div>
+    <div class="btn-light profile boxShadow mt-4">
+        <div class="boxShadow p-2 profile_detail">
+        <p class="fs-4">Your Student Id:</p>
+        <p class="fs-4">{{result[0][0]}}</p>
     </div>
-
-
+        <div class="boxShadow p-2 profile_detail">
+        <p class="fs-4">Your Name:</p>
+        <p class="fs-4">{{result[0][1]}}</p>
+    </div>
+        <div class="boxShadow p-2 profile_detail">
+        <p class="fs-4">Your Registered Emal:</p>
+        <p class="fs-4">{{result[0][2]}}</p>
+    </div>
+        <div class="boxShadow p-2 profile_detail">
+        <p class="fs-4">Your Current Semester:</p>
+        <p class="fs-4">{{result[0][4]}}</p>
+    </div>
+    </div>
 
 {% endblock %}

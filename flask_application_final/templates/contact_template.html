@@ -1,14 +1,15 @@
 {% extends "base_template.html" %}
 {% set active_link = 'contact' %}
-{% block title %}Contact US{% endblock %}
+{% block title %}Feedback/Contact US{% endblock %}
 
 {% block content %}
 
 <div class="container  d-flex justify-content-center align-items-center mt-4">
     <div class="w-100 center d-flex justify-content-center flex-column align-items-center">
-    <h2 class="text-light">Facing Problem ? or Have any feedback</h2>
-    <p class="fs-4 text-light">Feel free to reach us by filling the form below🥰</p>
-        <form method="post" class="w-25">
+    <h2 class="text-light heading_bg">Facing Problem ? or Have any feedback</h2>
+    <p class="fs-4 text-light heading_bg">Feel free to reach us by filling the form below🥰</p>
+    <form method="post" class="w-50">
+            <div class="content p-5">
             <div class="mb-3 ">
                 <label for="userID" class="form-label text-light">NAME</label>
                 <input type="text" class="form-control" name="userName" placeholder="enter your name">
@@ -27,6 +28,7 @@
             </div>
             
             <button type="submit" class="btn btn-primary">Send</button>
+        </div>
         </form>
     </div>
 </div>

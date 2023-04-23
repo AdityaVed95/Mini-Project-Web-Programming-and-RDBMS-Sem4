@@ -27,7 +27,8 @@ def home_fxn():
         print("session establish failure")
         return redirect("/")
 
-    return render_template('home_template.html')
+    student_name = session.get("studentName")
+    return render_template('home_template.html',student_name=student_name.upper())
 
 
 # navbar routes
@@ -59,6 +60,7 @@ def login_fxn():
 
             if (result[1][0][3] == request.form.get("studentPassword")):
                 session["studentId"] = request.form.get("studentId")
+                session["studentName"] = request.form.get("studentName")
                 return redirect(url_for('home_fxn'))
 
             else:
@@ -67,7 +69,7 @@ def login_fxn():
         else:
             return render_template('login_fail.html')
 
-        # return render_template('home_template.html')
+        # return render_template('home_template.html',student_name=.capitialize())
     else:
         return render_template('login_template.html')
 

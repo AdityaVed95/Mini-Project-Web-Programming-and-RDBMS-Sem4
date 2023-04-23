@@ -35,21 +35,20 @@
                         Year
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{url_for('branch_fxn',year='fy')}}">F.Y</a></li>
-                        <li><a class="dropdown-item" href="{{url_for('branch_fxn',year='sy')}}">S.Y</a></li>
-                        <li><a class="dropdown-item" href="{{url_for('branch_fxn',year='ty')}}">T.Y</a></li>
+                        <li><a class="dropdown-item" href="{{url_for('branch_fxn',year='fy')}}">F.Y</a>
+                            <hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{{url_for('branch_fxn',year='sy')}}">S.Y</a>
+                            <hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{{url_for('branch_fxn',year='ty')}}">T.Y</a>
+                            <hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{{url_for('branch_fxn',year='ly')}}">L.Y</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Passed out</a></li>
                     </ul>
                 </li>
                 <li class="nav-item mx-4 fs-5">
                     <a class="nav-link {{'active'  if active_link == 'faqs' else ''}}" href="{{url_for('faqs_fxn')}}">FAQ's</a>
                 </li>
                 <li class="nav-item mx-4 fs-5">
-                    <a class="nav-link {{'active'  if active_link == 'contact' else ''}}" href="{{url_for('contact_fxn')}}">Contact Us</a>
+                    <a class="nav-link {{'active'  if active_link == 'contact' else ''}}" href="{{url_for('contact_fxn')}}">FeedBack</a>
                 </li>
             </ul>
             <ul class="list-unstyled me-2 mb-0 d-flex">

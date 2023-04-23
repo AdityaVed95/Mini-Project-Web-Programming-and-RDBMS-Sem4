@@ -28,3 +28,36 @@
 .boxShadow{
     box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
 }
+
+.content{
+    height: 70vh;
+    overflow-y: scroll;
+    margin: auto;
+}
+
+.heading_bg{
+    background: #3d3c3c;
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: fit-content;
+    margin: 5px auto;
+}
+
+.profile{
+    width: 600px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.profile_detail{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 1rem;
+}
+
+.profile_detail p{
+    margin:1rem 0;
+}
+
+

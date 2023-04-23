@@ -3,17 +3,24 @@
 
 {% block content %}
 <div class="pt-5 text-center text-light">
-    <h1 class="container">Welcome to UniSource</h1>
-    <p class="fs-4">"Your one stop destination for all study resources"</p>
+    <h1 class="container heading_bg">Welcome to UniSource</h1>
+    <p class="fs-4 heading_bg">"Your one stop destination for all study resources"</p>
 </div>
 <div class="text-center text-light containerCenterAll border border-light p-5 border-4 rounded">
-    <p class="fs-4 bg-dark p-1 border rounded">Are you a new to our Site? Then REGISTER NOW !!!!</p>
-    <p class="fs-4 bg-dark p-1 border rounded">Or LOGIN to continue your learning journey😉</p>
+    <p class="fs-4 heading_bg">Are you a new to our Site?</p>
+    <span><a href="{{url_for('login_fxn')}}"><button type="button"
+                class="btn btn-success btn-lg fs-3">REGISTER NOW !!!!</button></a></span>
+
+<br><br>
+    <p class="fs-4 heading_bg">Or Click the LOGIN button to continue your learning journey😉</p>
     <span><a href="{{url_for('login_fxn')}}"><button type="button"
                 class="btn btn-primary btn-lg fs-3">LOGIN</button></a></span>
 
-    <span><a href="{{url_for('signup_fxn')}}"><button type="button"
+    <!-- <span><a href="{{url_for('signup_fxn')}}"><button type="button"
                 class="btn btn-success btn-lg fs-3">REGISTER</button></a></span>
-</div>
+    <span><a href="{{url_for('signup_fxn')}}"><button type="button"
+                class="btn heading_bg text-light fs-4"><p>LOGIN to continue your learning journey😉</p></button></a></span> -->
+
+            </div>
 
 {% endblock %}
