@@ -6,7 +6,6 @@ def make_connection():
                                 port="5432",
                                 database="postgres",
                                 options="-c search_path=sy_mp,public")
-    cursor = connection.cursor()
-    return cursor
+    return connection
 
 

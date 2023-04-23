@@ -6,11 +6,12 @@
 # (0,error) is passed in tuple form
 
 from sql_queries import connection_fxn 
-
+import psycopg2
 def select_required_courses(subject_name,dept_name,year):
     connection = 0
     try:
-        cursor=connection_fxn.make_connection()
+        connection=connection_fxn.make_connection()
+        cursor=connection.cursor()
 
         if year == 'FY':
             postgreSQL_select_Query = "select course_name,course_link from sy_mp.online_courses where fk_subject_name ='"+subject_name+"' and fk_dept_name is null"

@@ -1,13 +1,13 @@
 # fetches the _no_of_modules_of_a_given subject
 
 from sql_queries import connection_fxn 
-
+import psycopg2
 
 def get_no(subject_name):
     connection = 0
     try:
-        cursor=connection_fxn.make_connection()
-
+        connection=connection_fxn.make_connection()
+        cursor=connection.cursor()
         postgreSQL_select_Query = "select no_of_modules from sy_mp.subject where subject_name ='" + subject_name +"'"
         
         cursor.execute(postgreSQL_select_Query)

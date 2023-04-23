@@ -5,11 +5,12 @@
 # 0 and the error in case of failed retreival of data
 
 from sql_queries import connection_fxn 
-
+import psycopg2
 def get_student_details(studentId):
     connection = 0
     try:
-        cursor=connection_fxn.make_connection()
+        connection=connection_fxn.make_connection()
+        cursor=connection.cursor()
         postgreSQL_select_Query = "select * from sy_mp.student where student_id ='" + studentId + "'"
         # 'select * from sy_mp.student where student_id =id2'
         cursor.execute(postgreSQL_select_Query)

@@ -7,13 +7,14 @@
 # (0,error) is passed in tuple form
 
 from sql_queries import connection_fxn 
-
+import psycopg2
 
 def select_required_subjects(correspondingYear, dept_name):
     connection = 0
 
     try:
-        cursor=connection_fxn.make_connection()
+        connection=connection_fxn.make_connection()
+        cursor=connection.cursor()
 
         if (correspondingYear == "FY"):
             postgreSQL_select_Query = "select subject_name from sy_mp.subject where corresponding_year = '" + correspondingYear + "'"

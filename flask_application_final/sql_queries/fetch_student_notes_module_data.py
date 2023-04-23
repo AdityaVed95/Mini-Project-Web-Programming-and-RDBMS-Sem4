@@ -1,9 +1,10 @@
 from sql_queries import connection_fxn 
-
+import psycopg2
 def select_required_module_data(subject_name,dept_name,moduleNo,year):
     connection = 0
     try:
-        cursor=connection_fxn.make_connection()
+        connection=connection_fxn.make_connection()
+        cursor=connection.cursor()
 
         if year == 'FY':
             postgreSQL_select_Query = "select * from sy_mp.student_notes where fk_subject_name ='"+subject_name+"' and fk_dept_name is null and module_number = "+moduleNo

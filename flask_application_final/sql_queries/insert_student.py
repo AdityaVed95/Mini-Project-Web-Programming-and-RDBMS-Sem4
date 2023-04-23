@@ -2,7 +2,7 @@
 # which is to added to the database 
 
 from sql_queries import connection_fxn 
-
+import psycopg2
 # this fxn returns 1,"1" tuple if the insertion was successful and 
 #  0, error if it was not successful
 
@@ -10,7 +10,8 @@ from sql_queries import connection_fxn
 def insert_student_into_db(studentId,studentName,studentEmail,studentPassword,studentCurrentSem):
     connection = 0
     try:
-        cursor=connection_fxn.make_connection()
+        connection=connection_fxn.make_connection()
+        cursor=connection.cursor()
 
         postgreSQL_insert_Query = """
         
