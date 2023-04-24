@@ -40,10 +40,10 @@ def faqs_fxn():
     return render_template('faqs_template.html')
 
 
-@app.route('/home/contact')
+@app.route('/home/contact' , methods=['GET', 'POST'])
 def contact_fxn():
     if not session.get("studentId"):
-        return redirect("/")
+        return redirect("/")  
         
     return render_template('contact_template.html')
 
