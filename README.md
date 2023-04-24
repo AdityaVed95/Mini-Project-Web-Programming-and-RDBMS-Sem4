@@ -1,4 +1,4 @@
 # Mini-Project-Web-Programming-and-RDBMS-Sem4
-Mini Project For KJSCE Student Study Resources Platform Website
+A Student to Student Based Study Resource Portal for the students of KJSCE
 
 Know purpose and scope of this project at => Progress_presentation => Exp1
