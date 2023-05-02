@@ -9,10 +9,16 @@
     {% for kjsce_note in result %}
 
     <div class="subjects d-flex flex-column">
+        {% set kjsce_note_name = kjsce_note[3] %}
+    
         <a href="{{ url_for('download_fxn', file_path=kjsce_note[4])}}" class="btn options btn-light text-dark"> {{kjsce_note[3]}}</a>
-        
+
+        {% if studentId == "admin" %}
+            <a href="{{url_for('remove_kjsce_note_fxn',subject_name=subject_name,dept_name=dept_name,year=year,kjsce_note_name=kjsce_note_name)}}" class="btn  btn-light text-dark" style="width:100px;background: rgb(184, 72, 72);margin: auto;margin-top: 10px;"> Delete</a>      
+        {% endif %}
+
     </div>  
-           
+    <!--  -->
     {% endfor %}
 </div>
     
