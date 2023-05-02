@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, request, session, redirect, send_file
 from sql_queries import fetch_subjects, insert_student, fetch_student_details, fetch_textbook_from_db, \
-    fetch_no_of_modules, fetch_online_courses, fetch_kjsce_notes_module_data,fetch_student_notes_module_data
+    fetch_no_of_modules, fetch_online_courses, fetch_kjsce_notes_module_data,fetch_student_notes_module_data , connection_fxn,remove_kjsce_notes
 from flask_session import Session
 
 app = Flask(__name__)
@@ -198,7 +198,7 @@ def module_data_fxn(year, dept_name, subject_name, resource_name, module_no):
     if result[0] == 0:
         return render_template('problem_template.html')
 
-    return render_template('module_data_template.html', result=result[1])
+    return render_template('module_data_template.html', result=result[1],subject_name = subject_name,dept_name = dept_name,year = year,studentId = session.get('studentId'))
 
 
 @app.route('/home/profile')
@@ -212,9 +212,25 @@ def profile_fxn():
     return render_template("profile.html", result=result[1])
     # return render_template('profile_template.html',session.get('studentId'))
 
+# /home/<year>/<dept_name>/<subject_name>/<resource_name>/<module_no>/
 
-if __name__ == "__main__":
-    app.run(debug=True)
+# @app.route('/home/remove_kjsce_note')
+# def remove_kjsce_note_fxn():
+#     return request.args.get('print_me')
+
+@app.route('/home/remove_kjsce_note/<subject_name>/<dept_name>/<year>/<kjsce_note_name>')
+def remove_kjsce_note_fxn(subject_name,dept_name,year,kjsce_note_name):
+    
+    if not session.get("studentId"):
+        return redirect("/")
+
+    
+    remove_kjsce_notes.delete_required_kjsce_note(subject_name,dept_name,year,kjsce_note_name)
+    return redirect("/home")
+    # return render_template('module_data_template.html',result=request.args.get('result'),subject_name = request.args.get('subject_name'),dept_name = request.args.get('dept_name'),year = request.args.get('year'))
+
+# if __name__ == "__main__":
+#     app.run(debug=True)
 
 # # testing whether python programs to interact with data base is working :
 
